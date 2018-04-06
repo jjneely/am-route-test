@@ -31,6 +31,22 @@ Use the `-e` option to make the tool exit with a status code of 2 if the
 receivers found do not match the comma seperated list of receivers passed to
 that flag.
 
+Examples are below for some edge case testing we have in the PERF environment.
+
+```
+#!/bin/bash
+
+set +eux
+
+# ...
+
+# PERF environment is special
+./am-route-test -e perfcap-high-priority,default-event-handler \
+    monitor=node severity=page environment=perf
+./am-route-test -e perfcap-low-priority,default-event-handler \
+    monitor=node severity=warning environment=perf
+```
+
 Maintenance
 -----------
 
