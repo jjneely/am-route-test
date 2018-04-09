@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Alertmanager</title>
+    </head>
+    <body>
+        <script>
+            // If there is no trailing slash at the end of the path in the url,
+            // add one. This ensures assets like script.js are loaded properly
+            if (window.location.pathname.substr(-1) != '/') {
+                window.location.pathname = window.location.pathname + '/';
+                console.log('added slash');
+            }
+        </script>
+        <script src="script.js"></script>
+        <script>
+            var app = Elm.Main.embed(document.body, { production: true, defaultCreator: window.localStorage.getItem('defaultCreator') });
+            app.ports.persistDefaultCreator.subscribe(function(name) {
+                window.localStorage.setItem('defaultCreator', name);
+            });
+        </script>
+    </body>
+</html>
