@@ -5,4 +5,7 @@ export CGO_ENABLED=0
 
 
 build:
-	go build -mod=vendor -o am-route-test
+	go build -o am-route-test
+
+clean:
+	rm am-route-test
